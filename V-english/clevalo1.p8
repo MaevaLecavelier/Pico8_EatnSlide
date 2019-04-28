@@ -20,7 +20,7 @@ ctime={
 
 
 -- variables intro --
-txtintro = {"en l'an 18, un froid intense a","recouvert la contree de vallis","bona. mais celui-ci n'est pas ","du au hasard : les scouls, une","race extraterrestre,ont envahi","le pays.sur leur planete gelee","ils ne mangent que de la glace","les humains doivent faire face","a un dilemne:donner aux scouls","leur meilleur plat ou mourir.."}
+txtintro = {"year 18. an extreme cold has  ","covered vallis bona land. but","it wasn't a coincidence:scouls","have invaded the country. on  ","their frozen planet, it was im","possible for them to eat somet","hing else than ice.humanity is"," facing a plight: giving their"," best meals or die..."}
 txtintrotmp = sub(txtintro[1],1,1)
 cptintro = 1
 yintro = 30
@@ -31,7 +31,7 @@ timeintro = 0
 fin_y=120
 
 --variables texte fin --
-txtfin = {"felicitation! vous avez trouve"," le meilleur plat de vallis  ","bona: l'hamburger ! les scouls","sont repus et peuvent repartir"," sur leur planete. vous avez  ","sauve l'humanite !!!"};
+txtfin = {"well done!you've finally found","the best vallis bona's dish : ","the humburger! scouls are now ","satiated and they are leaving ","the earth alone. you have just"," saved humanity!"};
 txtfintmp = sub(txtfin[1],1,1)
 cptfin = 1
 yfin = 50
@@ -198,14 +198,14 @@ function menu_draw()
  cls()
  map(0,48,0,0,16,16)
  camera(0,0)
- print("x pour jouer",25,65,0)
+ print("press x to start",25,65,0)
  print("⬆️",108,64,0)
  print("⬅️⬇️➡️", 100,70,0)
  spr(p.sprite,44,35)
   if(dget(level)!=nil) then
-    print("niveau "..level,35,50,0)
-    print("meilleur temps : "..dget(level),25,57,0)
-  else print("niveau "..level,10,18,0)
+    print("level "..level,35,50,0)
+    print("best time : "..dget(level),25,57,0)
+  else print("level "..level,10,18,0)
   end
   print("⬅️     ➡️",30,35)
 end
@@ -225,12 +225,12 @@ function draw_end()
 	fin_y-=1/5
 	if fin_y<-105 then fin_y=120 end
 		cls()
-		print("merci d'avoir joue",30,fin_y,7)
-		print("par",60,fin_y+20,7)
+		print("thanks for playing",30,fin_y,7)
+		print("by",60,fin_y+20,7)
 		print("maeva lecavelier",35,fin_y+60,7)
 		print("loic bertolotto",35,fin_y+80,7)
 		print("clement poueyto",35,fin_y+40,7)
-		print("c pour continuer",30,fin_y+100,7)
+		print("press c to continue",30,fin_y+100,7)
 end
 
 function draw_end_txt()--fonction qui ne fait rien, pour garder un fond noir derrière
@@ -320,8 +320,8 @@ end
 ------ menu ------
 
 function intro(timeintro)
- print("c pour continuer",60,120)
-	if(timeintro % 3 == 0) and (nbloop < 300) then
+ print("press c to skip",60,120)
+	if(timeintro % 3 == 0) and (nbloop < 261) then
 		nbloop += 1
 		numsentence = get_sentence(nbloop)
 		print(txtintrotmp, 0, yintro, 7)
@@ -390,8 +390,8 @@ end
 ------- texte fin -----
 
 function txtend(timefin)
- print("c pour continuer",60,120)
-	if(timefin % 3 == 0) and (nbloop_fin < 170) then
+ print("press c to skip",60,120)
+	if(timefin % 3 == 0) and (nbloop_fin < 166) then
 		nbloop_fin += 1
 		numsentence = get_sentence(nbloop_fin)
 		print(txtfintmp, 0, yfin, 7)
@@ -1013,4 +1013,3 @@ __music__
 00 41424344
 00 41424344
 00 414b4344
-
